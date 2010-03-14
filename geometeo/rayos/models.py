@@ -7,6 +7,7 @@ class rayos_ukmo(models.Model):
 	lon = models.FloatField()
 	lat = models.FloatField()
 	fecha = models.DateTimeField()
+	error = models.FloatField()
 
 	#especifico de geodjango
 	geopunto = models.PointField()
