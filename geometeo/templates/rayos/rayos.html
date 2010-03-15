@@ -1,0 +1,5 @@
+{% for rayo in rayos %}
+    <div id={{rayo.id}} class='rayo linkOFF'>
+        {{rayo.name}} ({{rayo.geometry.y}}, {{rayo.geometry.x}})
+    </div>
+{% endfor %}
