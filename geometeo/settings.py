@@ -1,6 +1,8 @@
 # Django settings for geometeo project.
 # Import system modules
 import os
+import logging
+logging.basicConfig(level=logging.DEBUG)
 # Set paths
 baseDirectory = os.path.dirname(__file__)
 fillPath = lambda x: os.path.join(baseDirectory, x)
