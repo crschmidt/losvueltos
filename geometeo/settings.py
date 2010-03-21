@@ -78,5 +78,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.gis',
-    'geometeo.rayos'
+    'geometeo.rayos',
+    'geometeo.cartografia'
 )
