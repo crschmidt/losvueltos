@@ -9,15 +9,14 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^geometeo/', include('geometeo.foo.urls')),
+    (r'^ukmo/rays/$', 'geometeo.ukmo.views.index'),
+#    (r'^rayos/(?P<rayo_id>\d+)/$', 'geometeo.rayos.views.detail'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
     # Uncomment the next line to enable the admin:
- 	(r'^admin/', include(admin.site.urls)),
-	(r'', include('geometeo.rayos.urls')),
+    (r'^admin/', include(admin.site.urls)),
 )
 
 if settings.DEBUG:

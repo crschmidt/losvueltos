@@ -1,0 +1,123 @@
+# Map file created from QGIS project file /home/fabio/losvueltos/geometeo/cartografia/data/shapes-cloudmade.qgs
+# Edit this file to customize for your map interface
+# (Created with PyQgis MapServer Export plugin)
+MAP
+  NAME MyMap
+  # Map image size
+  SIZE 600 400
+  UNITS meters
+
+  EXTENT -11.936904 35.069096 6.101973 43.990318
+  PROJECTION
+    'proj=longlat'
+    'ellps=WGS84'
+    'datum=WGS84'
+    'no_defs'
+  END
+
+  # Background color for the map canvas -- change as desired
+  IMAGECOLOR 255 255 255
+  IMAGEQUALITY 95
+  IMAGETYPE PNG
+  OUTPUTFORMAT
+    NAME 'PNG'
+    DRIVER 'GD/PNG'
+    MIMETYPE 'image/png'
+    #IMAGEMODE PC256
+    EXTENSION 'png'
+  END
+  # Legend
+  LEGEND
+      IMAGECOLOR 255 255 255
+    STATUS ON
+    KEYSIZE 18 12
+    LABEL
+      TYPE BITMAP
+      SIZE MEDIUM
+      COLOR 0 0 89
+    END
+  END
+
+  # Web interface definition. Only the template parameter
+  # is required to display a map. See MapServer documentation
+  WEB
+    # Set IMAGEPATH to the path where MapServer should
+    # write its output.
+    IMAGEPATH '/tmp/'
+
+    # Set IMAGEURL to the url that points to IMAGEPATH
+    # as defined in your web server configuration
+    IMAGEURL '/tmp/'
+
+    # WMS server settings
+    METADATA
+      'wms_title'           'MyMap'
+      'wms_onlineresource'  'http://geometeoserver/cgi-bin/mapserv?map=/home/fabio/losvueltos/geometeo/cartografia/data/shapes-cloudmade.map&'
+      'wms_srs'             'EPSG:4326'
+    END
+
+    #Scale range at which web interface will operate
+    # Template and header/footer settings
+    # Only the template parameter is required to display a map. See MapServer documentation
+    TEMPLATE '/home/fabio/losvueltos/geometeo/cartografia/templates/index.html'
+    HEADER '/home/fabio/losvueltos/geometeo/cartografia/templates/footer.html'
+    FOOTER '/home/fabio/losvueltos/geometeo/cartografia/templates/header.html'
+  END
+
+  LAYER
+    NAME 'cartografia_europe_administrative'
+    TYPE LINE
+    CONNECTIONTYPE postgis
+    CONNECTION 'host=localhost user=geo password=12345 dbname=geodjango'
+    DATA 'geom FROM cartografia_europe_administrative'
+    METADATA
+      'wms_title' 'cartografia_europe_administrative'
+    END
+    STATUS DEFAULT
+    TRANSPARENCY 100
+    PROJECTION
+    'proj=longlat'
+    'ellps=WGS84'
+    'datum=WGS84'
+    'no_defs'
+    END
+    CLASS
+       NAME 'cartografia_europe_administrative' 
+       STYLE
+         SYMBOL 0 
+         SIZE 2 
+         OUTLINECOLOR 86 108 104
+         COLOR 0 0 0
+       END
+    END
+  END
+
+  LAYER
+    NAME 'spain_administrative'
+    TYPE LINE
+    CONNECTIONTYPE postgis
+    CONNECTION 'host=localhost user=geo password=12345 dbname=geodjango'
+    DATA 'the_geom FROM spain_administrative'
+    METADATA
+      'wms_title' 'spain_administrative'
+    END
+    STATUS DEFAULT
+    TRANSPARENCY 100
+    PROJECTION
+    'proj=longlat'
+    'ellps=WGS84'
+    'datum=WGS84'
+    'no_defs'
+    END
+    CLASS
+       NAME 'spain_administrative' 
+       STYLE
+         SYMBOL 0 
+         SIZE 2 
+         OUTLINECOLOR 220 134 233
+         COLOR 0 0 0
+       END
+    END
+  END
+
+END
