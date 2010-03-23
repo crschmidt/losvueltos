@@ -16,7 +16,7 @@ while (<FILE>)
 	chomp $linea;
 	my ($fecha,$sec,$x,$y,$error) = split (',',$linea);
 	#print "($fecha,$sec,$x,$y,$error)\n";
-	my $sql = "insert into rayos_rayos_ukmo (lon,lat,fecha,error,geopunto) values ($x,$y,'$fecha',$error,ST_GeomFromText('POINT($x $y)', 4326))";
+	my $sql = "insert into ukmo_ray (lon,lat,datetime,error,geopoint) values ($x,$y,'$fecha',$error,ST_GeomFromText('POINT($x $y)', 4326))";
 	my $numfilas=$db->do($sql);
 	if ($numfilas == 0)
 	{

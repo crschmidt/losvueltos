@@ -1,3 +1,12 @@
-No me interesa lo que pienso decir de que va este proyecto
-Orino en tu craneo
-Yo tampoco
+* Paquetes necesarios:
+
+  - postgres
+  - python-gdal
+  - postgis
+
+* Base de datos
+
+  sudo -u postgres createuser -S -D -I -R -P geo
+  sudo -u postgres createdb -O geo geodjango
+
+
