@@ -10,10 +10,10 @@ class rayos_ukmo(models.Model):
 	error = models.FloatField()
 
 	#especifico de geodjango
-	geopunto = models.PointField(srid=4326)
+	geopoint = models.PointField(srid=4326)
 	objects = models.GeoManager()
 
 # Returns the string representation of the model.
 def __unicode__(self):
-	return '%s %s %s' % (self.name, self.geometry.x, self.geometry.y)
+	return '%s %s %s' % (self.name, self.geopoint.x, self.geopoint.y)
 
