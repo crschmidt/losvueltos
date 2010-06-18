@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>OpenLayers Basic Single WMS Example</title>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+
+        function init()
+	{
+		map = new OpenLayers.Map('map');
+		var wms = new OpenLayers.Layer.WMS(
+			"OpenLayers WMS", "http://labs.metacarta.com/wms/vmap0",
+			//"NASA", "http://wms.jpl.nasa.gov/wms.cgi",
+			{layers: 'basic'}
+		);
+
+		var layer = new OpenLayers.Layer.Vector("GML", {
+	        	strategies: [new OpenLayers.Strategy.Fixed()],
+        		protocol: new OpenLayers.Protocol.HTTP({
+        			url: "/rayos/",
+        			format: new OpenLayers.Format.JSON()
+        		})
+     		});
+
+		map.addLayers([wms, layer]);
+		map.addLayers([wms]);
+		map.zoomToExtent(new OpenLayers.Bounds(-3.92, 44.34, 4.87, 49.55));
+        }
+    </script>
+  </head>
+
+  <body onload="init()">
+    <h1 id="title">Basic OSM Example</h1>
+
+    <div id="tags"></div>
+
+    <div id="shortdesc">Show a Simple OSM Map</div>
+
+    <div id="map" class="smallmap"></div>
+
+    <div id="docs">
+
+        This example shows a very simple OSM layout with minimal controls. 
+    </div>
+  </body>
+</html>
+
