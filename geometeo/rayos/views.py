@@ -23,5 +23,5 @@ def calcula_json():
     djf = Django.Django(geodjango="geopoint", properties=['error', 'lat','lon'])
     geoj = GeoJSON.GeoJSON()
     string = geoj.encode(djf.decode(qs))
-    return string
+    return HttpResponse(string)
 

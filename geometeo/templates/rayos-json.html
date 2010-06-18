@@ -16,7 +16,7 @@
 		var layer = new OpenLayers.Layer.Vector("GML", {
 	        	strategies: [new OpenLayers.Strategy.Fixed()],
         		protocol: new OpenLayers.Protocol.HTTP({
-        			url: "/rayos/",
+        			url: "/rayos/json/",
         			format: new OpenLayers.Format.JSON()
         		})
      		});
