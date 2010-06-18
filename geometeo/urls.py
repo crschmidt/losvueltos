@@ -15,7 +15,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
  	(r'^admin/', include(admin.site.urls)),
- 	(r'^rayos/', pinta_rayos),
- 	(r'^rayos/json/', calcula_json),
+ 	(r'^rayos/$', pinta_rayos),
+ 	(r'^rayos/json/$', calcula_json),
 
 )
